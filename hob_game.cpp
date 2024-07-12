@@ -1,87 +1,109 @@
 //bazi hob
-# include <iostream>
+#include <iostream>
 # include <unistd.h>
 
 using namespace std ;
 
-int main (){
-	int num , mazrab , sum , shomarande =0;
-	char q ='y';
+
+	void animprint (string text )
+	{
+		for (int i = 0 ; i < text . length(); i++)
+		{
+			if (text .length () < 18)
+			{
+				if (text. length () < 5)
+				{
+					usleep (30000);
+					cout << text [i] ;
+				} else {
+					usleep (90000);
+					cout << text [i] ;
+					
+				}
+			} else {
+				usleep (40000);
+				cout << text [i] ;
+			}
+		
+		}
+		cout << endl ;
+	};
 	
-	cout << "\t\t\t\t\t bazi hob  \n" ;
+int main ()
+{
+	int num , mazrab , x[20] , k =0 , zoj=1 ;
+	char y_n = 'y' , hob ='h';
+	
+	cout<< "\t \t \t \t ";
+	animprint ("bazi hob");
+	animprint ("salam be bazhi hob khoshomadi !!!");
 	sleep (2);
-	cout << "too khone bikar shodi omadi ba computer hob bazi koni ? (y/n) \n";
-	cin >> q ;
-	if (q == 'n' || q == 'N')
-	{
-		cout<< "pas inja alan chikar mikoni boro be karat beres "<< endl ;
-		return 0 ;
-	}
 	
-	cout<< "mazrabe chand bashe ? ";
-	cin >> mazrab ;
-	
-	for (int i =1 ; i < 100 ; i ++)
+	while (y_n == 'y')
 	{
-		if (i % 2 != 0)
+		animprint ("ie mazrab bego ? ");
+		cin >> mazrab ;
+		
+		if (mazrab % 2 == 0)
 		{
-			if (shomarande == 8)
-			{
-				cout<< "ta inja ke kheili ason bod XD\n";
-			}
-			if (shomarande < 15 && shomarande > 7)
-			{
-				sleep (1);
-			}
-			if (shomarande >= 15 )
-			{
-				sleep (2);
-			}
-			if(shomarande == 14)
-			{
-				cout<< "midonesti man computer am v nemitoni man ro bebari !!! "<< endl ;
-			}
-			if (shomarande == 20)
-			{
-				cout<< "baba shol kon migam man computer am nemitoni bebari \n";
-			}
-			if (shomarande == 40)
-			{
-				cout << "A    ?"<< endl;
-				return 0 ;
-			}
-			sum = mazrab * i ;
-			cout << sum << endl ;
-			shomarande ++ ;
+			zoj = 0 ;
+		} else {
+			zoj = 1 ;
 		}
-		 else 
+		switch (zoj) 
 		{
-			shomarande ++ ;
-		 	sum = mazrab * i ;
-		 	cin >> num ;
-		 	if (num != sum )
-		 	{
-			 break ;
+			case 0 :
+			{
+				for (int i = 1 ; i <=20 ; i++)
+				{
+					x[i-1]= mazrab * i ;
+				}
+		
+				for (int i =1 ;i <100 ; i++)
+				{
+					if (i != x[k])
+					{	
+						cout << i << endl ; 
+						cin >> num ;
+						if (num != i +1 )
+						{
+							cout << "to bakhti\n";
+						}
+						i++;	
+					}
+					if (i == x[k])
+					{
+						cin >> hob ;
+						if (hob != 'h')
+						{
+							cout << "to bakhti ";
+						}
+					}	
+				}
+		
+			}
+			case 1 :
+			{
+				
 			}
 		}
-	}
-	sleep (3);
+			
+		
 	
-	if (shomarande <= 10)
-	{
-		cout<< "afarin !!! "<< endl ;
-		sleep (2);
-		cout << "na shokhi kardam , gandzadi"<< endl ;
-	}
-	if ( 10 < shomarande && shomarande <= 30)
-	{
-		cout<< "badak nabod  !!! ";
-	}
-	if ( 30 < shomarande && shomarande <= 100)
-	{
-		cout<< "be paie man nemiresi man computer am !!! ";
+		
+		
+		
+		
+		
+		animprint ("dobare bazi konim ? (y/n)");
+		cin >> y_n ;
 	}
 
 	
-	return 0 ;
+	
+	
+	
+	
+	
+	return 0 ; 
 }
